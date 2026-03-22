@@ -1,0 +1,6 @@
+build/
+CMakeFiles/
+.cache/
+.DS_Store
+
+
