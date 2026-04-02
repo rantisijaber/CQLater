@@ -15,6 +15,14 @@ void cql_circuit_init(QuantumCircuit* circuit, size_t qubit_count) {
     gate_array_init(&circuit->gate_array, 10);
 }
 
+void cql_circuit_destroy(QuantumCircuit* circuit) {
+    free(circuit->state_vector);
+    circuit->state_vector = NULL;
+    circuit->qubit_count = 0;
+    circuit->state_vector_size = 0;
+    circuit->gate_pos = 0;
+    gate_array_destroy(&circuit->gate_array);
+}
 
 void cql_hadamard(QuantumCircuit* circuit, uint8_t qubit_idx) {
     ComplexNum altered_states[circuit->state_vector_size];

@@ -25,7 +25,7 @@ void cql_circuit_init(QuantumCircuit* circuit, size_t qubit_count);
 void cql_hadamard(QuantumCircuit* circuit, uint8_t qubit_idx);
 void cql_pauliX(QuantumCircuit* circuit, uint8_t qubit_idx);
 void cql_pauliY(QuantumCircuit* circuit, uint8_t qubit_idx);
-
+void cql_circuit_destroy(QuantumCircuit* circuit);
 
 
 

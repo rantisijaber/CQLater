@@ -24,6 +24,7 @@ typedef struct {
 } GateArray;
 
 void gate_array_init(GateArray* gate_array, size_t capacity);
+void gate_array_destroy(GateArray* gate_array);
 void gate_array_append(GateArray* gate_array, Gate gate);
 
 
