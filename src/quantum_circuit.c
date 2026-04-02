@@ -49,7 +49,6 @@ void cql_hadamard(QuantumCircuit* circuit, uint8_t qubit_idx) {
         });
 }
 
-
 void cql_pauliX(QuantumCircuit* circuit, uint8_t qubit_idx) {
     for (size_t i = 0; i < (1 << circuit->qubit_count) / 2; i++) {
         uint32_t pair_idx = i ^ (1 << qubit_idx);

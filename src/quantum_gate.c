@@ -15,8 +15,6 @@ void gate_array_destroy(GateArray* gate_array) {
     gate_array->capacity = 0;
 }
 
-
-
 void gate_array_append(GateArray* gate_array, Gate gate) {
     if (gate_array->size == gate_array->capacity) { 
         void* temp = realloc(gate_array->gates, sizeof(Gate) * gate_array->capacity * 2);
