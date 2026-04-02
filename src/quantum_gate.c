@@ -10,7 +10,7 @@ void gate_array_init(GateArray* gate_array, size_t capacity) {
 
 void gate_array_append(GateArray* gate_array, Gate gate) {
     if (gate_array->size == gate_array->capacity) { 
-        void* temp = realloc(gate_array->gates, gate_array->capacity * 2);
+        void* temp = realloc(gate_array->gates, sizeof(Gate) * gate_array->capacity * 2);
         if (temp == NULL) return;
     }
     
