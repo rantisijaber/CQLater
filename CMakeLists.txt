@@ -14,6 +14,8 @@ add_executable(CQLater
     src/main.c
     src/complex.c
     src/matrix.c
+    src/quantum_circuit.c
+    src/quantum_gate.c
 )
 
 target_include_directories(CQLater
