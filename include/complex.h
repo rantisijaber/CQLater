@@ -6,21 +6,21 @@
 typedef struct {
     double real;
     double imag;
-} ComplexNum;
+} complex_num;
 
 
-ComplexNum complex_add(ComplexNum num1, ComplexNum num2);
-ComplexNum complex_subtract(ComplexNum num1, ComplexNum num2);
-ComplexNum complex_multiply(ComplexNum num1, ComplexNum num2);
-ComplexNum complex_conj(ComplexNum num);
-bool complex_conj_check(ComplexNum num1, ComplexNum num2);
-double complex_modulus_squared(ComplexNum num);
-ComplexNum complex_divide(ComplexNum num1, ComplexNum num2);
-double complex_modulus(ComplexNum num);
-ComplexNum complex_scale(ComplexNum num, double scale);
-double complex_argument(ComplexNum num);
-ComplexNum complex_euler(double theta);
-ComplexNum complex_normalize(ComplexNum num);
+complex_num complex_add(complex_num num1, complex_num num2);
+complex_num complex_subtract(complex_num num1, complex_num num2);
+complex_num complex_multiply(complex_num num1, complex_num num2);
+complex_num complex_conj(complex_num num);
+bool complex_conj_check(complex_num num1, complex_num num2);
+double complex_modulus_squared(complex_num num);
+complex_num complex_divide(complex_num num1, complex_num num2);
+double complex_modulus(complex_num num);
+complex_num complex_scale(complex_num num, double scale);
+double complex_argument(complex_num num);
+complex_num complex_euler(double theta);
+complex_num complex_normalize(complex_num num);
 
 
 

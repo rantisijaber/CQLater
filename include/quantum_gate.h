@@ -3,29 +3,30 @@
 
 #include <stddef.h>
 #include <stdint.h>
+
 typedef enum {
     PauliX,
     PauliY,
     PauliZ,
     Hadamard
-} GateType;
+} cql_gate_type;
 
 typedef struct {
-    GateType gate_type;
+    cql_gate_type gate_type;
     size_t circuit_pos;
     uint8_t target_qubit;
     uint8_t control_qubit;
-} Gate;
+} cql_gate;
 
 typedef struct {
-    Gate* gates;
+    cql_gate* gates;
     size_t size;
     size_t capacity;
-} GateArray;
+} cql_gate_array;
 
-void gate_array_init(GateArray* gate_array, size_t capacity);
-void gate_array_destroy(GateArray* gate_array);
-void gate_array_append(GateArray* gate_array, Gate gate);
+void gate_array_init(cql_gate_array* gate_array, size_t capacity);
+void gate_array_destroy(cql_gate_array* gate_array);
+void gate_array_append(cql_gate_array* gate_array, cql_gate gate);
 
 
 
