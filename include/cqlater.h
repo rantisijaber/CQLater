@@ -3,8 +3,9 @@
 
 #include <stddef.h>
 #include <stdint.h>
-#include "complex.h"
+#include <stdbool.h>
 
+#include "complex.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,7 +30,7 @@ void cql_pauliX(cql_qcircuit* circuit, uint8_t qubit_idx);
 void cql_pauliY(cql_qcircuit* circuit, uint8_t qubit_idx);
 void cql_circuit_destroy(cql_qcircuit* circuit);
 void cql_printsv(const cql_qcircuit* circuit);
-
+bool cql_clifvalid(const cql_qcircuit* circuit);
 
 
 #ifdef __cplusplus

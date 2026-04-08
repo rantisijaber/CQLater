@@ -85,8 +85,8 @@ void cql_pauliY(cql_qcircuit* circuit, uint8_t qubit_idx) {
     for (size_t i = 0; i < circuit->state_vector.size; i++) {
         uint32_t pair_idx = i ^ (1 << qubit_idx);
         if ((i & (1 << qubit_idx)) == 0) {
-            circuit->state_vector.values[i] = complex_multiply(circuit->state_vector.values[pair_idx], (complex_num) {0, -1});
-            circuit->state_vector.values[pair_idx] = complex_multiply(circuit->state_vector.values[i], (complex_num) {0, 1});
+            circuit->state_vector.values[i] = complex_multiply(circuit->state_vector.values[pair_idx], (complex_num) {0.0, -1.0});
+            circuit->state_vector.values[pair_idx] = complex_multiply(circuit->state_vector.values[i], (complex_num) {0.0, 1.0});
         }
     }
 
@@ -101,7 +101,7 @@ void cql_pauliY(cql_qcircuit* circuit, uint8_t qubit_idx) {
 void cql_pauliZ(cql_qcircuit* circuit, uint8_t qubit_idx) {
     for (size_t i = 0; i < circuit->state_vector.size; i++) {
         if ((i & (1 << qubit_idx)) == 1) {
-            circuit->state_vector.values[i] = complex_multiply(circuit->state_vector.values[i], (complex_num) {-1, 0});
+            circuit->state_vector.values[i] = complex_multiply(circuit->state_vector.values[i], (complex_num) {-1.0, 0.0});
         }
     }
 
@@ -118,4 +118,10 @@ void cql_printsv(const cql_qcircuit* circuit) {
         printf("%f + %fi\n", circuit->state_vector.values[i].real, 
                 circuit->state_vector.values[i].imag);
     }
+}
+
+bool cql_isclifvalid(const cql_qcircuit* circuit, cql_gate gate) {
+    if (gate.gate_type == Hadamard || gate.gate_type == PauliX 
+            || gate.gate_type == PauliY || gate.gate_type == PauliZ) { return true; }
+    return false;
 }
