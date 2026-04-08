@@ -36,6 +36,7 @@ void cql_circuit_destroy(cql_qcircuit* circuit) {
         free(&(circuit->state_vector.values));
         circuit->state_vector.values = NULL;
     }
+    free(circuit);
 }
 
 void cql_hadamard(cql_qcircuit* circuit, uint8_t qubit_idx) {
