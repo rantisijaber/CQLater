@@ -52,7 +52,7 @@ void cql_hadamard(cql_qcircuit* circuit, uint8_t qubit_idx) {
         }
     }
 
-    for (uint32_t i = 0; i < circuit->state_vector.size; i++) {
+    for (size_t i = 0; i < circuit->state_vector.size; i++) {
         circuit->state_vector.values[i] = altered_states[i];
     }
     
@@ -121,8 +121,6 @@ void cql_printsv(const cql_qcircuit* circuit) {
     }
 }
 
-bool cql_isclifvalid(const cql_qcircuit* circuit, cql_gate gate) {
-    if (gate.gate_type == Hadamard || gate.gate_type == PauliX 
-            || gate.gate_type == PauliY || gate.gate_type == PauliZ) { return true; }
-    return false;
+bool cql_isclifvalid(cql_gate gate) {
+    return gate.gate_type == Hadamard || gate.gate_type == PauliX || gate.gate_type == PauliY || gate.gate_type == PauliZ;
 }
