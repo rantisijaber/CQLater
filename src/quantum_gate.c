@@ -14,8 +14,9 @@ void gate_array_destroy(cql_gate_array* gate_array) {
 }
 
 void gate_array_append(cql_gate_array* gate_array, cql_gate gate) {
-    if (gate_array->size == gate_array->capacity) { 
-        void* temp = realloc(gate_array->gates, sizeof(cql_gate) * gate_array->capacity * 2);
+    if (gate_array->size == gate_array->capacity) {
+        gate_array->capacity *= 2;
+        void* temp = realloc(gate_array->gates, sizeof(cql_gate) * gate_array->capacity);
         if (temp == NULL) return;
     }
     
